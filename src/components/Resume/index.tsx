@@ -6,10 +6,12 @@ import { MainContent } from './MainContent'
 import { ThemeToggle } from './ThemeToggle'
 import { LanguageToggle } from './LanguageToggle'
 import { PdfDownload } from './PdfDownload'
+import { PrintResume } from './PrintResume'
 
 export function Resume() {
   const { resolve } = useTranslation()
   return (
+    <>
     <div className="resume-page w-full max-w-4xl mx-auto px-4 py-8">
       <div className="resume-actions flex items-center justify-between mb-4">
         <PdfDownload />
@@ -29,5 +31,7 @@ export function Resume() {
         {resolve(resumeConfig.labels.actions.clickHint)}
       </p>
     </div>
+    <PrintResume />
+    </>
   )
 }

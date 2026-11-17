@@ -20,7 +20,15 @@ npm run build
 ```
 
 ## Como salvar o currículo em PDF
-Abra a página e clique em **Salvar em PDF**. Na janela de impressão, escolha **Salvar como PDF**, tamanho **A4**, desabilite cabeçalhos/rodapés do navegador e, se preferir, ative gráficos de fundo. Este site **não exige envio de dados pessoais a um serviço externo** para criar o PDF.
+Abra a página e clique em **Salvar em PDF**. O site usa uma **versão própria de impressão em uma única folha A4**, com colunas compactas, experiências, projetos, formação e foto. Na janela de impressão selecione **Salvar como PDF**, A4, escala 100%, margens padrão do CSS, sem cabeçalhos/rodapés e habilite os gráficos de fundo para preservar o estilo. Se editar o conteúdo e acrescentar muitas informações, confira a prévia antes de salvar. Não é necessário serviço externo.
+
+## Sua foto
+
+Coloque uma foto **sua** em `public/images/foto.jpg` (o diretório já existe). Formatos suportados: `.jpg`, `.jpeg`, `.png` e `.webp`; recomendamos foto quadrada, de preferência 600×600 px ou maior, mostrando rosto e ombros. A imagem será detectada automaticamente na próxima compilação, no site e no PDF. Não precisa alterar o TypeScript.
+
+Até você enviar a foto, a página e o PDF apresentam as iniciais **AA**, sem utilizar a foto de outra pessoa. Como o repositório é público, a foto também será pública.
+
+Para adicionar pela interface do GitHub: entre em `public/images/`, escolha **Add file → Upload files**, envie `foto.jpg` e confirme o commit. O GitHub Actions fará a nova publicação quando Pages estiver ativado.
 
 ## Onde editar
 - [src/data/resume-config.ts](src/data/resume-config.ts) — conteúdo profissional, contatos e idiomas

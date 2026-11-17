@@ -42,30 +42,189 @@ body {
 * { box-sizing: border-box; }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--resume-primary); outline-offset: 3px; }
 
-@page { size: A4; margin: 9mm; }
+
+/* Print-only A4 sheet: the interactive experience is unchanged on screen. */
+.cv-print { display: none; }
+
+@page { size: A4 portrait; margin: 8mm; }
+
 @media print {
-  html, body, #root { width: 100%; background: #fff !important; color: #182832 !important; }
-  body { print-color-adjust: exact; -webkit-print-color-adjust: exact; font-size: 10px; }
-  *, *::before, *::after { animation: none !important; transition: none !important; }
-  .resume-actions, .resume-hint { display: none !important; }
-  .resume-page { width: 100% !important; max-width: none !important; padding: 0 !important; margin: 0 !important; }
-  .resume-card { box-shadow: none !important; border: 1px solid #dce7e9 !important; border-radius: 0 !important; overflow: visible !important; transform: none !important; }
-  .resume-columns { display: flex !important; flex-direction: row !important; align-items: stretch !important; }
-  .resume-columns > :first-child { width: 36% !important; padding: 14px !important; background: #edf4f5 !important; }
-  .resume-columns > :last-child { width: 64% !important; padding: 14px !important; }
-  .resume-columns h1 { font-size: 24px !important; letter-spacing: .07em !important; }
-  .resume-columns h2 { margin-bottom: 8px !important; }
-  .resume-columns section, .resume-columns article { break-inside: avoid; }
-  .resume-columns a { color: #175f75 !important; text-decoration: none; }
-  .resume-columns .text-resume-text, .resume-columns .text-resume-text-secondary { color: #182832 !important; }
-  .resume-columns .space-y-3 > * + * { margin-top: 6px !important; }
-  .resume-columns .space-y-4 > * + * { margin-top: 8px !important; }
-  .resume-columns .mt-8 { margin-top: 15px !important; }
-  .resume-columns .mb-8 { margin-bottom: 14px !important; }
-  .resume-columns .p-8 { padding: 14px !important; }
-  .resume-columns .text-sm { font-size: 11px !important; }
-  .resume-columns .text-xs { font-size: 9px !important; }
-  .resume-columns button { cursor: default; }
+  :root {
+    --resume-text: #182832;
+    --resume-text-secondary: #506770;
+    --resume-primary: #175f75;
+    --resume-bg: #fff;
+  }
+  html, body, #root {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff !important;
+    color: #182832 !important;
+  }
+  body {
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 9pt !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .resume-page { display: none !important; }
+
+  /* 194 x 281 mm corresponds to A4 with 8mm margins. */
+  .cv-print {
+    display: block !important;
+    width: 194mm !important;
+    height: 278mm !important;
+    max-width: 194mm;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+    color: #182832 !important;
+    overflow: hidden;
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+  .cv-print__header {
+    min-height: 34mm;
+    padding: 1mm 0 5mm;
+    display: flex;
+    gap: 5mm;
+    align-items: center;
+    border-bottom: 1.2pt solid #175f75;
+  }
+  .cv-print__avatar {
+    flex: 0 0 25mm;
+    width: 25mm;
+    height: 25mm;
+    border-radius: 50%;
+    border: 1.4pt solid #d5e7eb;
+    background: #e1eff1;
+    color: #175f75;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    font-weight: 700;
+    font-size: 22pt;
+    letter-spacing: -1pt;
+  }
+  .cv-print__avatar img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 22%;
+  }
+  .cv-print__identity { flex: 1; min-width: 0; }
+  .cv-print h1 {
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 21pt;
+    letter-spacing: -.25pt;
+    font-weight: 800;
+    line-height: 1.08;
+    margin: 0 0 2mm;
+    color: #172b34;
+    text-transform: none;
+  }
+  .cv-print__role {
+    color: #175f75;
+    font-size: 11pt;
+    font-weight: 700;
+    margin: 0 0 1.4mm;
+  }
+  .cv-print__subtitle {
+    color: #526873;
+    font-size: 8.8pt;
+    margin: 0;
+  }
+  .cv-print__columns {
+    display: grid;
+    grid-template-columns: 63mm minmax(0, 1fr);
+    gap: 6mm;
+    padding-top: 5mm;
+    align-items: start;
+  }
+  .cv-print__side {
+    background: #eef5f6;
+    border-radius: 2mm;
+    padding: 5mm 4.3mm;
+    overflow-wrap: anywhere;
+  }
+  .cv-print__main { padding: 0 1mm; min-width: 0; }
+  .cv-print__section { margin-bottom: 4mm; }
+  .cv-print__section:last-child { margin-bottom: 0; }
+  .cv-print h2 {
+    font-size: 8.6pt;
+    line-height: 1.2;
+    font-weight: 800;
+    margin: 0 0 2.6mm;
+    letter-spacing: .35pt;
+    text-transform: uppercase;
+    color: #175f75;
+    border-bottom: .5pt solid #c2d9de;
+    padding: 0 0 1.3mm;
+  }
+  .cv-print h3 {
+    font-size: 9pt;
+    line-height: 1.18;
+    font-weight: 700;
+    color: #1c333d;
+    margin: 0;
+  }
+  .cv-print p, .cv-print li, .cv-print span, .cv-print a {
+    font-size: 8.2pt;
+    line-height: 1.27;
+  }
+  .cv-print p { margin: .7mm 0; }
+  .cv-print a { color: #175f75; text-decoration: none; overflow-wrap: anywhere; }
+  .cv-print__contact { padding: 0; margin: 0; list-style: none; }
+  .cv-print__contact li { margin: 0 0 2mm; }
+  .cv-print__skill-group { margin-bottom: 2.8mm; }
+  .cv-print__skill-group h3 { font-size: 8.1pt; }
+  .cv-print__skill-group p { color: #435b65; font-size: 7.9pt; }
+  .cv-print__education { margin-bottom: 2mm; }
+  .cv-print__education p { color: #435b65; }
+  .cv-print__about p { color: #435b65; }
+  .cv-print__experience {
+    margin-bottom: 3.5mm;
+    break-inside: avoid;
+  }
+  .cv-print__item-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 3mm;
+  }
+  .cv-print__item-header > span,
+  .cv-print__item-header > a {
+    color: #526873;
+    font-size: 7.8pt;
+    white-space: nowrap;
+  }
+  .cv-print__position {
+    color: #175f75;
+    font-weight: 650;
+  }
+  .cv-print__tasks {
+    margin: 1.1mm 0 0 0;
+    padding-left: 4.5mm;
+  }
+  .cv-print__tasks li { margin-bottom: .65mm; }
+  .cv-print__project {
+    border-left: 1.7pt solid #c2dce1;
+    padding-left: 2.5mm;
+    margin-bottom: 3mm;
+    break-inside: avoid;
+  }
+  .cv-print__project .cv-print__techs {
+    color: #517580;
+    font-size: 7.5pt;
+    margin-top: .5mm;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
