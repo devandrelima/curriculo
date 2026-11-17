@@ -60,6 +60,7 @@ export const resumeConfig: ResumeConfig = {
       items: [
         { name: 'Pandas' }, { name: 'NumPy' }, { name: 'PostgreSQL' },
         { name: 'Apache Spark', color: '#E25A1C' }, { name: 'AWS' },
+        { name: 'Hostinger', color: '#673DE6' }, { name: 'Contabo', color: '#2D7DBA' },
       ],
     },
     {
