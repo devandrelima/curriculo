@@ -10,18 +10,18 @@ export const resumeConfig: ResumeConfig = {
     name: 'André de Lima Alves',
     photoBackEmoji: 'AA',
     title: {
-      pt: 'AI Builder · Sistemas, Dados e Automações',
-      en: 'AI Builder · Software, Data & Automation',
+      pt: 'AI Builder · Automações e Produtos com IA',
+      en: 'AI Builder · Automation & AI Products',
     },
     subtitle: {
-      pt: 'Ciência da Computação na UFERSA · projetos open source com agentes de IA',
-      en: 'Computer Science at UFERSA · open-source projects with AI agents',
+      pt: 'Transformo problemas em ferramentas com agentes de IA, automações e dados.',
+      en: 'I turn problems into tools using AI agents, automation and data.',
     },
     location: 'Mossoró, RN · Brasil',
   },
   seo: {
-    title: 'André de Lima Alves | AI Builder, Sistemas e Dados',
-    description: 'Currículo interativo de André de Lima Alves. Ciência da Computação na UFERSA; experiência em Data & AI, sistemas, automações, Claude Code e Codex. Projetos CaixaFuturo e Planejamento de Sistemas 2.0.',
+    title: 'André de Lima Alves | AI Builder · Automação e Dados',
+    description: 'Currículo para o estágio GenAI do iFood: projetos com agentes de IA, automações, dashboards, dados e desenvolvimento colaborativo.',
   },
   languages: {
     default: 'pt',
@@ -37,39 +37,36 @@ export const resumeConfig: ResumeConfig = {
   ],
   skills: [
     {
-      title: { pt: 'IA aplicada ao desenvolvimento', en: 'AI-assisted engineering' },
+      title: { pt: 'IA aplicada', en: 'Applied AI' },
       type: 'badges',
       items: [
-        { name: 'Claude Code', color: '#C1785B' },
-        { name: 'Codex', color: '#0B6F66' },
-        { name: 'ChatGPT', color: '#0D9276' },
-        { name: 'Engenharia de prompts', color: '#59708E' },
+        { name: 'Claude Code' }, { name: 'Codex' },
+        { name: 'ChatGPT' }, { name: 'Prompt engineering' },
       ],
     },
     {
-      title: { pt: 'Desenvolvimento', en: 'Software engineering' },
+      title: { pt: 'Desenvolvimento', en: 'Development' },
       type: 'badges',
       items: [
-        { name: 'Python' }, { name: 'Java' }, { name: 'TypeScript' }, { name: 'React' },
-        { name: 'SQL' }, { name: 'Docker' }, { name: 'GitHub Actions' },
+        { name: 'Python' }, { name: 'TypeScript' }, { name: 'React' },
+        { name: 'Java' }, { name: 'SQL' }, { name: 'APIs REST' },
       ],
     },
     {
       title: { pt: 'Dados e cloud', en: 'Data & cloud' },
       type: 'badges',
       items: [
-        { name: 'Pandas' }, { name: 'NumPy' }, { name: 'PostgreSQL' },
-        { name: 'Apache Spark', color: '#E25A1C' }, { name: 'AWS' },
-        { name: 'Hostinger', color: '#673DE6' }, { name: 'Contabo', color: '#2D7DBA' },
+        { name: 'AWS' }, { name: 'PostgreSQL' }, { name: 'Docker' },
+        { name: 'Apache Spark' }, { name: 'Hostinger' }, { name: 'Contabo' },
       ],
     },
     {
-      title: { pt: 'Métodos de trabalho', en: 'Delivery methods' },
+      title: { pt: 'Entrega de soluções', en: 'Solution delivery' },
       type: 'text',
       items: [{
         name: {
-          pt: 'Prompts-mapa e tasks, memória seletiva, integração por API, automações, testes unitários e E2E, CI/CD, revisão humana por sprint.',
-          en: 'Prompt maps and tasks, selective context, API integrations, automation, unit/E2E tests, CI/CD and human review per sprint.',
+          pt: 'Agentes de IA, automação de fluxos, dashboards, testes e CI/CD.',
+          en: 'AI agents, workflow automation, dashboards, testing and CI/CD.',
         },
       }],
     },
@@ -78,36 +75,31 @@ export const resumeConfig: ResumeConfig = {
     {
       id: 'gimeer-conectar',
       company: { pt: 'Gimeer · Conectar+', en: 'Gimeer · Conectar+' },
-      role: { pt: 'Desenvolvimento de sistemas e automações', en: 'Systems development and automation' },
+      role: { pt: 'Sistemas e automações', en: 'Systems & automation' },
       type: { pt: 'Freelancer', en: 'Freelancer' },
       period: { pt: 'Atual', en: 'Present' },
       description: {
-        pt: 'Atuo como freelancer para Gimeer e Conectar+, desenvolvendo sistemas web/mobile, dashboards, integrações por API e fluxos de chatbots e WhatsApp.',
-        en: 'I work as a freelancer for Gimeer and Conectar+, building web/mobile systems, dashboards, API integrations and chatbot/WhatsApp flows.',
+        pt: 'Desenvolvo sistemas, dashboards e integrações por API, com apoio de agentes de IA.',
+        en: 'I build systems, dashboards and API integrations with AI coding agents.',
       },
-      techs: ['APIs REST', 'Git', 'Automação', 'Dashboards'],
+      techs: ['APIs REST', 'Automação', 'Claude Code'],
       isHighlighted: true,
       details: {
         context: {
-          pt: 'Prestação de serviços freelance para duas empresas, com organização de demandas, evolução de produtos digitais e validação de entregas.',
-          en: 'Freelance services for two companies, covering requirements, digital product delivery and validation.',
+          pt: 'Prestação de serviços para duas empresas, com entregas práticas.',
+          en: 'Independent services for two companies, focused on practical deliveries.',
         },
         tasks: {
           pt: [
-            'Organização de requisitos, fluxos e documentação técnica para novas funcionalidades.',
-            'Construção e ajuste de telas, dashboards e integrações entre serviços.',
-            'Uso de Claude Code e Codex no desenvolvimento assistido por IA, com revisão de código e testes.',
+            'Desenvolvimento de interfaces e integração de fluxos digitais.',
+            'Uso de IA para acelerar implementação, revisão e testes.',
           ],
           en: [
-            'Organized requirements, workflows and technical documentation for new features.',
-            'Built and improved interfaces, dashboards and service integrations.',
-            'Used Claude Code and Codex for AI-assisted development, reviewing code and tests.',
+            'Development of interfaces and digital workflow integrations.',
+            'Use of AI to accelerate implementation, review and testing.',
           ],
         },
-        env: {
-          pt: 'Sistemas web/mobile · APIs · GitHub · agentes de IA · testes',
-          en: 'Web/mobile systems · APIs · GitHub · AI coding agents · testing',
-        },
+        env: { pt: 'Web · APIs · automação', en: 'Web · APIs · automation' },
       },
     },
     {
@@ -115,31 +107,22 @@ export const resumeConfig: ResumeConfig = {
       company: { pt: 'PET-Saúde SUS Digital', en: 'PET-Saúde SUS Digital' },
       role: { pt: 'Bolsista acadêmico', en: 'Academic scholarship recipient' },
       type: { pt: 'Bolsa acadêmica', en: 'Academic scholarship' },
-      period: { pt: 'Atual · até jul/2027 (prev.)', en: 'Present · through Jul 2027 (expected)' },
+      period: { pt: 'Atual', en: 'Present' },
       description: {
-        pt: 'Participação acadêmica em iniciativas que aproximam tecnologia, dados e saúde no contexto do SUS, incluindo trabalhos de organização e visualização de informações.',
-        en: 'Academic participation in initiatives connecting technology, data and public healthcare in Brazil, including data organization and visualization.',
+        pt: 'Atuo com organização e visualização de dados aplicados à saúde pública.',
+        en: 'I work with organization and visualization of public health data.',
       },
-      techs: ['Python', 'SQL', 'PostgreSQL', 'Streamlit'],
+      techs: ['Dados', 'Dashboards'],
       details: {
         context: {
-          pt: 'Bolsa acadêmica no PET-Saúde SUS Digital (2025–2027). Projeto relacionado no portfólio: processamento ETL e dashboard de dados de Unidades Básicas de Saúde.',
-          en: 'Academic scholarship in PET-Saúde SUS Digital (2025–2027). Related portfolio project: ETL processing and a dashboard for primary health unit data.',
+          pt: 'Atividades acadêmicas na interseção entre tecnologia, dados e SUS.',
+          en: 'Academic activities connecting technology, data and public healthcare.',
         },
         tasks: {
-          pt: [
-            'Participação em atividades acadêmicas ligadas à organização de dados no contexto da saúde pública.',
-            'Desenvolvimento de projeto acadêmico relacionado com ETL em Python, PostgreSQL e dashboard Streamlit de informações de UBS.',
-          ],
-          en: [
-            'Participated in academic activities involving organization of public healthcare data.',
-            'Built a related academic ETL project with Python, PostgreSQL and Streamlit dashboards for health unit information.',
-          ],
+          pt: ['Organização de informações e apoio à visualização de indicadores de saúde.'],
+          en: ['Organizing information and supporting the visualization of health indicators.'],
         },
-        env: {
-          pt: 'Dados de saúde · Python · PostgreSQL · Streamlit · ETL',
-          en: 'Health data · Python · PostgreSQL · Streamlit · ETL',
-        },
+        env: { pt: 'Dados de saúde · análise', en: 'Health data · analytics' },
       },
     },
     {
@@ -149,31 +132,20 @@ export const resumeConfig: ResumeConfig = {
       type: { pt: 'Estágio', en: 'Internship' },
       period: { pt: 'Jul–dez/2025', en: 'Jul–Dec 2025' },
       description: {
-        pt: 'Atuação em tratamento de dados, rotinas ETL e análises com Python e SQL, com atividades envolvendo Apache Spark e serviços AWS.',
-        en: 'Worked on data processing, ETL and analytics with Python and SQL, including Apache Spark and AWS services.',
+        pt: 'Trabalhei com ETL, SQL, PySpark e análise de dados na AWS.',
+        en: 'Worked on ETL, SQL, PySpark and data analytics on AWS.',
       },
-      techs: ['Python', 'SQL', 'Pandas', 'NumPy', 'AWS', 'Apache Spark'],
+      techs: ['Python', 'SQL', 'AWS'],
       details: {
         context: {
-          pt: 'Experiência prática de estágio na área de engenharia e análise de dados.',
-          en: 'Hands-on internship experience in data engineering and analytics.',
+          pt: 'Trilha prática com oito sprints e entregas registradas no GitHub.',
+          en: 'Hands-on eight-sprint program with deliverables documented on GitHub.',
         },
         tasks: {
-          pt: [
-            'Tratamento e transformação de dados com Python, Pandas e NumPy.',
-            'Construção e manutenção de rotinas ETL, consultas SQL e atividades com Spark.',
-            'Apoio a dashboards, modelagem de dados e uso de AWS Glue, Athena, Lambda e QuickSight.',
-          ],
-          en: [
-            'Processed and transformed data with Python, Pandas and NumPy.',
-            'Worked on ETL pipelines, SQL queries and Apache Spark tasks.',
-            'Supported dashboards, data modeling and AWS Glue, Athena, Lambda and QuickSight usage.',
-          ],
+          pt: ['Modelagem de dados, processamento com Spark e dashboards no QuickSight.'],
+          en: ['Data modeling, Spark processing and QuickSight dashboards.'],
         },
-        env: {
-          pt: 'Python · SQL · Spark · AWS Glue / Athena / Lambda / QuickSight',
-          en: 'Python · SQL · Spark · AWS Glue / Athena / Lambda / QuickSight',
-        },
+        env: { pt: 'AWS · Athena · QuickSight', en: 'AWS · Athena · QuickSight' },
       },
     },
   ],
@@ -182,41 +154,41 @@ export const resumeConfig: ResumeConfig = {
       id: 'caixafuturo',
       title: { pt: 'CaixaFuturo', en: 'CaixaFuturo' },
       description: {
-        pt: 'Aplicação financeira open source construída em seis sprints com agentes de IA: importação CSV, previsão e projeção de caixa, conciliação de recebíveis, backtesting e simulação de decisões. Motor sem API de IA no uso final; testes e CI documentados.',
-        en: 'Open-source financial application delivered across six agent-assisted sprints: CSV imports, cash forecasting, receivables reconciliation, backtesting and decision simulations. No paid AI API required at runtime; tests and CI documented.',
+        pt: 'App de previsão de caixa criado com agentes de IA: importação CSV, simulações, testes e deploy.',
+        en: 'Cash forecasting app built with AI agents: CSV import, simulations, testing and deployment.',
       },
-      techs: ['React', 'TypeScript', 'Docker', 'Vitest', 'Playwright'],
+      techs: ['React', 'TypeScript', 'Playwright'],
       github: 'https://github.com/devandrelima/caixafuturo',
     },
     {
       id: 'planejamento',
       title: { pt: 'Planejamento de Sistemas 2.0', en: 'System Planning 2.0' },
       description: {
-        pt: 'Skill open source de planejamento para agentes: projeto → sprint → prompt-mapa → task. Inclui contexto seletivo, CLI Python, validação estrutural, dependências, paralelismo controlado e gates humanos. Utilizada para planejar o CaixaFuturo.',
-        en: 'Open-source planning skill for coding agents: project → sprint → prompt map → task. Selective context, Python CLI, structural validation, dependencies, controlled parallelism and human approval gates. Applied to CaixaFuturo.',
+        pt: 'Skill que transforma requisitos em tarefas para agentes de IA, com contexto seletivo, validação e CI.',
+        en: 'Skill that turns requirements into AI-agent tasks, with selective context, validation and CI.',
       },
-      techs: ['Python', 'GitHub Actions', 'Prompt Engineering'],
+      techs: ['Agentes de IA', 'Python', 'GitHub Actions'],
       github: 'https://github.com/devandrelima/planejamento-de-sistemas',
     },
     {
-      id: 'compass-uol-sprints',
-      title: { pt: 'Programa Data & AI — Compass UOL', en: 'Compass UOL — Data & AI Program' },
+      id: 'arboviroses-front',
+      title: { pt: 'Arboviroses — projeto em equipe', en: 'Arboviruses — team project' },
       description: {
-        pt: 'Repositório de evidências do estágio, organizado em oito sprints: desafios, exercícios, modelagem de dados, SQL, PySpark e soluções de analytics na AWS, incluindo Athena e QuickSight.',
-        en: 'Internship evidence repository across eight sprints: challenges, exercises, data modeling, SQL, PySpark and AWS analytics, including Athena and QuickSight.',
+        pt: 'Dashboards de saúde desenvolvidos em equipe. Contribuí com integrações e exportação de dados por pull requests.',
+        en: 'Public-health dashboards built collaboratively. Contributed integrations and data export through pull requests.',
       },
-      techs: ['Python', 'SQL', 'Apache Spark', 'AWS', 'Amazon QuickSight'],
-      github: 'https://github.com/devandrelima/repositorio-compass-uol',
+      techs: ['React', 'TypeScript', 'Git'],
+      github: 'https://github.com/devandrelima/ArbovirosesFront',
     },
     {
-      id: 'agenda-ja-equipe',
-      title: { pt: 'Agenda Já — desenvolvimento em equipe', en: 'Agenda Já — collaborative development' },
+      id: 'compass-uol-sprints',
+      title: { pt: 'Compass UOL — portfólio Data & AI', en: 'Compass UOL — Data & AI portfolio' },
       description: {
-        pt: 'Frontend de uma plataforma de agendamentos desenvolvido em equipe, com contribuições via pull requests integrados ao projeto. Atuei na gestão de serviços conectada ao backend, no catálogo público e em fluxos da área do cliente, com testes e integração contínua.',
-        en: 'Scheduling platform frontend developed collaboratively, with contributions merged through pull requests. Worked on backend-integrated service management, the public catalog and client flows, with tests and CI.',
+        pt: 'Oito sprints documentadas com SQL, ETL, Spark, AWS e dashboards.',
+        en: 'Eight documented sprints covering SQL, ETL, Spark, AWS and dashboards.',
       },
-      techs: ['React', 'TypeScript', 'Git', 'Pull Requests', 'Playwright'],
-      github: 'https://github.com/devandrelima/agenda-ja-front',
+      techs: ['Python', 'SQL', 'AWS'],
+      github: 'https://github.com/devandrelima/repositorio-compass-uol',
     },
   ],
   education: [{
@@ -225,14 +197,14 @@ export const resumeConfig: ResumeConfig = {
       en: 'Federal Rural University of the Semi-Arid (UFERSA)',
     },
     degree: {
-      pt: 'Bacharelado em Ciência da Computação',
-      en: 'B.Sc. in Computer Science',
+      pt: 'Ciência da Computação · Bacharelado',
+      en: 'Computer Science · B.Sc.',
     },
     specialty: {
-      pt: 'Mossoró, RN · conclusão prevista: agosto de 2027',
-      en: 'Mossoró, Brazil · expected graduation: August 2027',
+      pt: 'Conclusão prevista: ago/2027',
+      en: 'Expected graduation: Aug 2027',
     },
-    period: '2023–2027 (previsão)',
+    period: '2023–2027',
   }],
   theme: {
     preset: 'ocean',
@@ -266,8 +238,8 @@ export const resumeConfig: ResumeConfig = {
     },
     actions: {
       clickHint: {
-        pt: 'Clique em cada experiência para ver mais detalhes. Use “Salvar em PDF” para imprimir.',
-        en: 'Select an experience to expand the details. Use “Save as PDF” to print.',
+        pt: 'Experiências e projetos com links para as entregas. Baixe em PDF.',
+        en: 'Explore experience and project links. Download as PDF.',
       },
       switchTheme: { pt: 'Alternar tema claro/escuro', en: 'Toggle light/dark mode' },
       downloadPdf: { pt: 'Salvar em PDF', en: 'Save as PDF' },

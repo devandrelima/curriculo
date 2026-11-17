@@ -11,7 +11,7 @@ import { assetUrl } from '@/lib/utils'
  * A tela interativa permanece intacta.
  */
 export function PrintResume() {
-  const { resolve, resolveArray } = useTranslation()
+  const { resolve } = useTranslation()
   const { personal, contact, skills, experiences, projects, education, labels } = resumeConfig
   const photo = personal.photo || detectedAssets.photo
   const years = (period: string) => period.replace(' (previsão)', '')
@@ -80,8 +80,8 @@ export function PrintResume() {
           <section className="cv-print__section cv-print__about">
             <h2>{resolve({ pt: 'SOBRE', en: 'PROFILE' })}</h2>
             <p>{resolve({
-              pt: 'Experiência em Data & AI, construção de sistemas e automações. Desenvolvo projetos com agentes de IA, validação técnica e testes.',
-              en: 'Experience in Data & AI, software delivery and automation. I build projects using AI agents, technical validation and tests.',
+              pt: 'Crio soluções práticas com agentes de IA, automações e dados, com foco em entrega e validação.',
+              en: 'I build practical solutions with AI agents, automation and data, focused on delivery and validation.',
             })}</p>
           </section>
         </aside>
@@ -97,11 +97,6 @@ export function PrintResume() {
                 </div>
                 <p className="cv-print__position">{resolve(exp.role)}{exp.type ? ` · ${resolve(exp.type)}` : ""}</p>
                 <p>{resolve(exp.description)}</p>
-                {exp.details?.tasks && (
-                  <ul className="cv-print__tasks">
-                    {resolveArray(exp.details.tasks).map((task, index) => <li key={index}>{task}</li>)}
-                  </ul>
-                )}
               </div>
             ))}
           </section>
