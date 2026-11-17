@@ -122,7 +122,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--resume-primary)
   .cv-print__identity { flex: 1; min-width: 0; }
   .cv-print h1 {
     font-family: Arial, Helvetica, sans-serif !important;
-    font-size: 21pt;
+    font-size: 16pt;
     letter-spacing: -.25pt;
     font-weight: 800;
     line-height: 1.08;

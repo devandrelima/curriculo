@@ -26,7 +26,7 @@ export function MainContent() {
     <div className="md:w-[62%] p-8">
       {/* Header */}
       <div className="text-center mb-8">
-        <h1 className="text-3xl md:text-4xl font-bold tracking-[0.15em] text-resume-text">
+        <h1 className="text-xl md:text-2xl font-bold tracking-[0.06em] leading-tight text-resume-text">
           {personal.name.toUpperCase()}
         </h1>
         <p className="text-base text-resume-text-secondary tracking-widest mt-2">
