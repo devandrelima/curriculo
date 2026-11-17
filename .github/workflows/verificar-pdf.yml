@@ -15,6 +15,8 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - name: Instalar utilitarios para inspecao de PDF
+        run: sudo apt-get update -qq && sudo apt-get install -y poppler-utils
       - name: Compilar site com caminho do GitHub Pages
         run: npm run build
         env:
@@ -39,9 +41,22 @@ jobs:
           fi
           "$browser" --headless --no-sandbox --disable-gpu \
             --disable-dev-shm-usage --virtual-time-budget=6000 \
+            --dump-dom 'http://127.0.0.1:4173/curriculo/?lang=pt' \
+            > /tmp/dom.html 2> /tmp/chrome-dom.log
+          grep -q 'cv-print__project' /tmp/dom.html || {
+            echo "Falha: a pagina React nao renderizou o curriculo para impressao."
+            tail -30 /tmp/chrome-dom.log
+            exit 1
+          }
+          "$browser" --headless --no-sandbox --disable-gpu \
+            --disable-dev-shm-usage --virtual-time-budget=6000 \
             --no-pdf-header-footer \
             --print-to-pdf=/tmp/curriculo-andre-a4.pdf \
             'http://127.0.0.1:4173/curriculo/?lang=pt'
+          test $(stat -c%s /tmp/curriculo-andre-a4.pdf) -gt 5000 || {
+            echo "PDF parece vazio"
+            exit 1
+          }
           pdfinfo /tmp/curriculo-andre-a4.pdf
           pages=$(pdfinfo /tmp/curriculo-andre-a4.pdf | awk '/^Pages:/ {print $2}')
           test "$pages" = "1" || { echo "Erro: o curriculo gerou $pages paginas, esperado 1."; exit 1; }
