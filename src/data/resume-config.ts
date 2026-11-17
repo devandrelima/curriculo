@@ -111,6 +111,38 @@ export const resumeConfig: ResumeConfig = {
       },
     },
     {
+      id: 'pet-sus-digital',
+      company: { pt: 'PET-Saúde SUS Digital', en: 'PET-Saúde SUS Digital' },
+      role: { pt: 'Bolsista acadêmico', en: 'Academic scholarship recipient' },
+      type: { pt: 'Bolsa acadêmica', en: 'Academic scholarship' },
+      period: { pt: 'Atual · até jul/2027 (prev.)', en: 'Present · through Jul 2027 (expected)' },
+      description: {
+        pt: 'Participação acadêmica em iniciativas que aproximam tecnologia, dados e saúde no contexto do SUS, incluindo trabalhos de organização e visualização de informações.',
+        en: 'Academic participation in initiatives connecting technology, data and public healthcare in Brazil, including data organization and visualization.',
+      },
+      techs: ['Python', 'SQL', 'PostgreSQL', 'Streamlit'],
+      details: {
+        context: {
+          pt: 'Bolsa acadêmica no PET-Saúde SUS Digital (2025–2027). Projeto relacionado no portfólio: processamento ETL e dashboard de dados de Unidades Básicas de Saúde.',
+          en: 'Academic scholarship in PET-Saúde SUS Digital (2025–2027). Related portfolio project: ETL processing and a dashboard for primary health unit data.',
+        },
+        tasks: {
+          pt: [
+            'Participação em atividades acadêmicas ligadas à organização de dados no contexto da saúde pública.',
+            'Desenvolvimento de projeto acadêmico relacionado com ETL em Python, PostgreSQL e dashboard Streamlit de informações de UBS.',
+          ],
+          en: [
+            'Participated in academic activities involving organization of public healthcare data.',
+            'Built a related academic ETL project with Python, PostgreSQL and Streamlit dashboards for health unit information.',
+          ],
+        },
+        env: {
+          pt: 'Dados de saúde · Python · PostgreSQL · Streamlit · ETL',
+          en: 'Health data · Python · PostgreSQL · Streamlit · ETL',
+        },
+      },
+    },
+    {
       id: 'compass',
       company: { pt: 'Compass UOL', en: 'Compass UOL' },
       role: { pt: 'Estagiário em Data & AI', en: 'Data & AI Intern' },
@@ -165,6 +197,16 @@ export const resumeConfig: ResumeConfig = {
       },
       techs: ['Python', 'GitHub Actions', 'Prompt Engineering'],
       github: 'https://github.com/devandrelima/planejamento-de-sistemas',
+    },
+    {
+      id: 'compass-uol-sprints',
+      title: { pt: 'Programa Data & AI — Compass UOL', en: 'Compass UOL — Data & AI Program' },
+      description: {
+        pt: 'Repositório de evidências do estágio, organizado em oito sprints: desafios, exercícios, modelagem de dados, SQL, PySpark e soluções de analytics na AWS, incluindo Athena e QuickSight.',
+        en: 'Internship evidence repository across eight sprints: challenges, exercises, data modeling, SQL, PySpark and AWS analytics, including Athena and QuickSight.',
+      },
+      techs: ['Python', 'SQL', 'Apache Spark', 'AWS', 'Amazon QuickSight'],
+      github: 'https://github.com/devandrelima/repositorio-compass-uol',
     },
     {
       id: 'petsus-etl',

@@ -66,6 +66,8 @@ jobs:
           pdftotext -layout /tmp/curriculo-andre-a4.pdf /tmp/cv.txt
           grep -qi "CaixaFuturo" /tmp/cv.txt
           grep -qi "Compass UOL" /tmp/cv.txt
+          grep -qi "PET-Saúde SUS Digital" /tmp/cv.txt
+          grep -qi "Programa Data" /tmp/cv.txt
           grep -qi "Bem Aqui" /tmp/cv.txt
           echo "OK: PDF A4 com exatamente uma pagina; experiencias e todos os projetos presentes."
       - name: Disponibilizar PDF de verificacao
