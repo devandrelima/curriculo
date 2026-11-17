@@ -50,6 +50,27 @@ jobs:
             throw new Error('O curriculo React nao renderizou a area para impressao')
           }
           await page.emulateMedia({media: 'print'})
+          const layout = await page.evaluate(() => {
+            const sheet = document.querySelector('.cv-print')
+            const projects = document.querySelectorAll('.cv-print__project')
+            const experiences = document.querySelectorAll('.cv-print__experience')
+            const last = projects[projects.length - 1]
+            if (!sheet || !last) throw new Error('Folha ou projetos ausentes')
+            return {
+              projects: projects.length,
+              experiences: experiences.length,
+              sheetBottom: sheet.getBoundingClientRect().bottom,
+              contentBottom: last.getBoundingClientRect().bottom,
+              scroll: sheet.scrollHeight,
+              visible: sheet.clientHeight
+            }
+          })
+          if (layout.projects !== 4 || layout.experiences !== 3) {
+            throw new Error('Numero inesperado de projetos/experiencias: ' + JSON.stringify(layout))
+          }
+          if (layout.contentBottom > layout.sheetBottom - 4 || layout.scroll > layout.visible + 2) {
+            throw new Error('Conteudo possivelmente cortado no PDF A4: ' + JSON.stringify(layout))
+          }
           await page.pdf({
             path: '/tmp/curriculo-andre-a4.pdf',
             format: 'A4',
@@ -67,7 +88,7 @@ jobs:
           grep -qi "CaixaFuturo" /tmp/cv.txt
           grep -qi "Compass UOL" /tmp/cv.txt
           grep -qi "PET-Saúde SUS Digital" /tmp/cv.txt
-          grep -qi "Programa Data" /tmp/cv.txt
+          grep -qi "Oito sprints" /tmp/cv.txt
           grep -qi "Arboviroses" /tmp/cv.txt
           ! grep -qi "Agenda Já" /tmp/cv.txt
           echo "OK: PDF A4 em uma pagina; Arboviroses, IA e experiencias presentes."
