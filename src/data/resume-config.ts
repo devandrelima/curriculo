@@ -32,6 +32,7 @@ export const resumeConfig: ResumeConfig = {
     { type: 'email', label: 'andre.alves@alunos.ufersa.edu.br' },
     { type: 'phone', label: '(84) 99429-1682' },
     { type: 'github', label: 'github.com/devandrelima', href: 'https://github.com/devandrelima' },
+    { type: 'linkedin', label: 'linkedin.com/in/andre-lima-developer', href: 'https://www.linkedin.com/in/andre-lima-developer/' },
     { type: 'location', label: 'Mossoró · Rio Grande do Norte' },
   ],
   skills: [
