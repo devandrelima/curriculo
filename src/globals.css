@@ -1,0 +1,72 @@
+@import 'tailwindcss';
+
+@theme inline {
+  --color-resume-bg: var(--resume-bg);
+  --color-resume-bg-card: var(--resume-bg-card);
+  --color-resume-text: var(--resume-text);
+  --color-resume-text-secondary: var(--resume-text-secondary);
+  --color-resume-primary: var(--resume-primary);
+  --color-resume-primary-light: var(--resume-primary-light);
+  --color-resume-sidebar-from: var(--resume-sidebar-from);
+  --color-resume-sidebar-to: var(--resume-sidebar-to);
+}
+@variant dark (&:where(.dark, .dark *));
+:root {
+  --resume-bg: #f6f9f9;
+  --resume-bg-card: #fff;
+  --resume-text: #182832;
+  --resume-text-secondary: #546d78;
+  --resume-primary: #175f75;
+  --resume-primary-light: #7cb5be;
+  --resume-sidebar-from: #edf4f5;
+  --resume-sidebar-to: #e4edef;
+}
+.dark {
+  --resume-bg: #0a1018;
+  --resume-bg-card: #131d2a;
+  --resume-text: #e0e8f0;
+  --resume-text-secondary: #99aabb;
+  --resume-primary: #8bc8d1;
+  --resume-primary-light: #bae1e8;
+  --resume-sidebar-from: #0d1520;
+  --resume-sidebar-to: #0a1018;
+}
+body {
+  margin: 0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--resume-bg);
+  color: var(--resume-text);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color .25s, color .25s;
+}
+* { box-sizing: border-box; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--resume-primary); outline-offset: 3px; }
+
+@page { size: A4; margin: 9mm; }
+@media print {
+  html, body, #root { width: 100%; background: #fff !important; color: #182832 !important; }
+  body { print-color-adjust: exact; -webkit-print-color-adjust: exact; font-size: 10px; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .resume-actions, .resume-hint { display: none !important; }
+  .resume-page { width: 100% !important; max-width: none !important; padding: 0 !important; margin: 0 !important; }
+  .resume-card { box-shadow: none !important; border: 1px solid #dce7e9 !important; border-radius: 0 !important; overflow: visible !important; transform: none !important; }
+  .resume-columns { display: flex !important; flex-direction: row !important; align-items: stretch !important; }
+  .resume-columns > :first-child { width: 36% !important; padding: 14px !important; background: #edf4f5 !important; }
+  .resume-columns > :last-child { width: 64% !important; padding: 14px !important; }
+  .resume-columns h1 { font-size: 24px !important; letter-spacing: .07em !important; }
+  .resume-columns h2 { margin-bottom: 8px !important; }
+  .resume-columns section, .resume-columns article { break-inside: avoid; }
+  .resume-columns a { color: #175f75 !important; text-decoration: none; }
+  .resume-columns .text-resume-text, .resume-columns .text-resume-text-secondary { color: #182832 !important; }
+  .resume-columns .space-y-3 > * + * { margin-top: 6px !important; }
+  .resume-columns .space-y-4 > * + * { margin-top: 8px !important; }
+  .resume-columns .mt-8 { margin-top: 15px !important; }
+  .resume-columns .mb-8 { margin-bottom: 14px !important; }
+  .resume-columns .p-8 { padding: 14px !important; }
+  .resume-columns .text-sm { font-size: 11px !important; }
+  .resume-columns .text-xs { font-size: 9px !important; }
+  .resume-columns button { cursor: default; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
