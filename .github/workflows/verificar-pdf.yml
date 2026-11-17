@@ -1,0 +1,59 @@
+name: Verificar PDF A4 (uma pagina)
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  pdf-a4:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Compilar site com caminho do GitHub Pages
+        run: npm run build
+        env:
+          VITE_BASE_PATH: /curriculo/
+      - name: Renderizar impressao em Chromium
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm run preview -- --host 127.0.0.1 --port 4173 > /tmp/vite-preview.log 2>&1 &
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:4173/curriculo/ >/dev/null; then break; fi
+            sleep 1
+          done
+          curl -fsS http://127.0.0.1:4173/curriculo/ >/dev/null
+          if command -v google-chrome >/dev/null; then
+            browser=google-chrome
+          elif command -v chromium >/dev/null; then
+            browser=chromium
+          else
+            echo "Chromium/Google Chrome indisponivel no runner" >&2
+            exit 1
+          fi
+          "$browser" --headless --no-sandbox --disable-gpu \
+            --disable-dev-shm-usage --virtual-time-budget=6000 \
+            --no-pdf-header-footer \
+            --print-to-pdf=/tmp/curriculo-andre-a4.pdf \
+            'http://127.0.0.1:4173/curriculo/?lang=pt'
+          pdfinfo /tmp/curriculo-andre-a4.pdf
+          pages=$(pdfinfo /tmp/curriculo-andre-a4.pdf | awk '/^Pages:/ {print $2}')
+          test "$pages" = "1" || { echo "Erro: o curriculo gerou $pages paginas, esperado 1."; exit 1; }
+          pdftotext -layout /tmp/curriculo-andre-a4.pdf /tmp/cv.txt
+          grep -qi "CaixaFuturo" /tmp/cv.txt
+          grep -qi "Compass UOL" /tmp/cv.txt
+          grep -qi "Bem Aqui" /tmp/cv.txt
+          echo "OK: PDF A4 com exatamente uma pagina, experiencias e projetos presentes."
+      - name: Disponibilizar PDF de verificacao
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Curriculo-Andre-A4
+          path: /tmp/curriculo-andre-a4.pdf
+          retention-days: 14
