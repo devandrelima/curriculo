@@ -50,7 +50,7 @@ export const resumeConfig: ResumeConfig = {
       title: { pt: 'Desenvolvimento', en: 'Software engineering' },
       type: 'badges',
       items: [
-        { name: 'Python' }, { name: 'TypeScript' }, { name: 'React' },
+        { name: 'Python' }, { name: 'Java' }, { name: 'TypeScript' }, { name: 'React' },
         { name: 'SQL' }, { name: 'Docker' }, { name: 'GitHub Actions' },
       ],
     },
