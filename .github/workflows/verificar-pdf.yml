@@ -68,8 +68,8 @@ jobs:
           grep -qi "Compass UOL" /tmp/cv.txt
           grep -qi "PET-Saúde SUS Digital" /tmp/cv.txt
           grep -qi "Programa Data" /tmp/cv.txt
-          grep -qi "Bem Aqui" /tmp/cv.txt
-          echo "OK: PDF A4 com exatamente uma pagina; experiencias e todos os projetos presentes."
+          grep -qi "Agenda Já" /tmp/cv.txt
+          echo "OK: PDF A4 em uma pagina; Agenda Ja, Compass UOL e experiencias presentes."
       - name: Disponibilizar PDF de verificacao
         if: success()
         uses: actions/upload-artifact@v4

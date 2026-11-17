@@ -209,33 +209,14 @@ export const resumeConfig: ResumeConfig = {
       github: 'https://github.com/devandrelima/repositorio-compass-uol',
     },
     {
-      id: 'petsus-etl',
-      title: { pt: 'ETL & Dashboard PET-Saúde', en: 'PET-Saúde ETL & Dashboard' },
+      id: 'agenda-ja-equipe',
+      title: { pt: 'Agenda Já — desenvolvimento em equipe', en: 'Agenda Já — collaborative development' },
       description: {
-        pt: 'Projeto acadêmico de organização e visualização de dados com fluxo ETL, banco PostgreSQL e dashboard Streamlit.',
-        en: 'Academic data processing and visualization project using an ETL pipeline, PostgreSQL and a Streamlit dashboard.',
+        pt: 'Frontend de uma plataforma de agendamentos desenvolvido em equipe, com contribuições via pull requests integrados ao projeto. Atuei na gestão de serviços conectada ao backend, no catálogo público e em fluxos da área do cliente, com testes e integração contínua.',
+        en: 'Scheduling platform frontend developed collaboratively, with contributions merged through pull requests. Worked on backend-integrated service management, the public catalog and client flows, with tests and CI.',
       },
-      techs: ['Python', 'PostgreSQL', 'Streamlit'],
-      github: 'https://github.com/devandrelima/etl_dashboard_petsus',
-    },
-    {
-      id: 'api-determinantes',
-      title: { pt: 'API de Determinantes Sociais', en: 'Social Determinants API' },
-      description: {
-        pt: 'API acadêmica para dados sobre determinantes sociais, desenvolvida com Java e Spring Boot.',
-        en: 'Academic API for social determinants data, built with Java and Spring Boot.',
-      },
-      techs: ['Java', 'Spring Boot', 'REST'],
-      github: 'https://github.com/devandrelima/api-determinantes-sociais',
-    },
-    {
-      id: 'bem-aqui',
-      title: { pt: 'Bem Aqui · em desenvolvimento', en: 'Bem Aqui · in progress' },
-      description: {
-        pt: 'Projeto privado de vitrines digitais para pequenos negócios e automação de divulgação de produtos. Código não público.',
-        en: 'Private project for small-business storefronts and product promotion automation. Source code is not public.',
-      },
-      techs: ['APIs REST', 'Automação'],
+      techs: ['React', 'TypeScript', 'Git', 'Pull Requests', 'Playwright'],
+      github: 'https://github.com/devandrelima/agenda-ja-front',
     },
   ],
   education: [{
