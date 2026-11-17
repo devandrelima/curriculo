@@ -95,7 +95,7 @@ export function PrintResume() {
                   <h3>{resolve(exp.company)}</h3>
                   <span>{resolve(exp.period)}</span>
                 </div>
-                <p className="cv-print__position">{resolve(exp.role)}</p>
+                <p className="cv-print__position">{resolve(exp.role)}{exp.type ? ` · ${resolve(exp.type)}` : ""}</p>
                 <p>{resolve(exp.description)}</p>
                 {exp.details?.tasks && (
                   <ul className="cv-print__tasks">

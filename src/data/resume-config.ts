@@ -77,18 +77,18 @@ export const resumeConfig: ResumeConfig = {
       id: 'gimeer-conectar',
       company: { pt: 'Gimeer · Conectar+', en: 'Gimeer · Conectar+' },
       role: { pt: 'Desenvolvimento de sistemas e automações', en: 'Systems development and automation' },
-      type: { pt: 'Atuação atual', en: 'Current work' },
+      type: { pt: 'Freelancer · sem vínculo empregatício', en: 'Freelancer · no employment relationship' },
       period: { pt: 'Atual', en: 'Present' },
       description: {
-        pt: 'Trabalho com funcionalidades de sistemas web e mobile, dashboards, integrações por API e fluxos relacionados a chatbots e WhatsApp.',
-        en: 'Work on web and mobile features, dashboards, API integrations and chatbot/WhatsApp-related workflows.',
+        pt: 'Presto serviços como freelancer para Gimeer e Conectar+, sem vínculo empregatício. Atuo em sistemas web/mobile, dashboards, integrações por API e fluxos de chatbots e WhatsApp.',
+        en: 'I provide freelance services to Gimeer and Conectar+ without an employment relationship, working on web/mobile systems, dashboards, API integrations and chatbot/WhatsApp flows.',
       },
       techs: ['APIs REST', 'Git', 'Automação', 'Dashboards'],
       isHighlighted: true,
       details: {
         context: {
-          pt: 'Desenvolvimento e evolução de produtos digitais em projetos reais, com organização de demandas e validação de entregas.',
-          en: 'Development and evolution of digital products in real projects, from requirements to delivery validation.',
+          pt: 'Prestação independente de serviços para duas empresas, sem vínculo empregatício, com organização de demandas, evolução de produtos digitais e validação de entregas.',
+          en: 'Independent freelance services for two companies, with no employment relationship, covering requirements, digital product delivery and validation.',
         },
         tasks: {
           pt: [
