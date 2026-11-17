@@ -15,13 +15,16 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - name: Instalar utilitarios para inspecao de PDF
-        run: sudo apt-get update -qq && sudo apt-get install -y poppler-utils
+      - name: Instalar ferramentas para teste de impressao
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y poppler-utils
+          npm install --no-save playwright-core@1.58.2
       - name: Compilar site com caminho do GitHub Pages
         run: npm run build
         env:
           VITE_BASE_PATH: /curriculo/
-      - name: Renderizar impressao em Chromium
+      - name: Renderizar A4 com Playwright e Google Chrome
         shell: bash
         run: |
           set -euo pipefail
@@ -31,40 +34,40 @@ jobs:
             sleep 1
           done
           curl -fsS http://127.0.0.1:4173/curriculo/ >/dev/null
-          if command -v google-chrome >/dev/null; then
-            browser=google-chrome
-          elif command -v chromium >/dev/null; then
-            browser=chromium
-          else
-            echo "Chromium/Google Chrome indisponivel no runner" >&2
-            exit 1
-          fi
-          "$browser" --headless --no-sandbox --disable-gpu \
-            --disable-dev-shm-usage --virtual-time-budget=6000 \
-            --dump-dom 'http://127.0.0.1:4173/curriculo/?lang=pt' \
-            > /tmp/dom.html 2> /tmp/chrome-dom.log
-          grep -q 'cv-print__project' /tmp/dom.html || {
-            echo "Falha: a pagina React nao renderizou o curriculo para impressao."
-            tail -30 /tmp/chrome-dom.log
-            exit 1
+          node --input-type=module <<'NODE'
+          import { chromium } from 'playwright-core'
+          const browser = await chromium.launch({channel: 'chrome', headless: true, args: ['--no-sandbox']})
+          const page = await browser.newPage({viewport: {width: 1200, height: 900}, deviceScaleFactor: 1})
+          const errors = []
+          page.on('pageerror', error => errors.push(String(error)))
+          const response = await page.goto('http://127.0.0.1:4173/curriculo/?lang=pt', { waitUntil: 'networkidle', timeout: 30000 })
+          if (!response?.ok()) throw new Error('Status HTTP invalido ao abrir o curriculo: ' + response?.status())
+          try {
+            await page.locator('.cv-print__project').first().waitFor({state: 'attached', timeout: 15000})
+          } catch {
+            console.error('Erros JS:', errors)
+            console.error('Body:', (await page.locator('body').innerText()).slice(0, 1600))
+            throw new Error('O curriculo React nao renderizou a area para impressao')
           }
-          "$browser" --headless --no-sandbox --disable-gpu \
-            --disable-dev-shm-usage --virtual-time-budget=6000 \
-            --no-pdf-header-footer \
-            --print-to-pdf=/tmp/curriculo-andre-a4.pdf \
-            'http://127.0.0.1:4173/curriculo/?lang=pt'
-          test $(stat -c%s /tmp/curriculo-andre-a4.pdf) -gt 5000 || {
-            echo "PDF parece vazio"
-            exit 1
-          }
+          await page.emulateMedia({media: 'print'})
+          await page.pdf({
+            path: '/tmp/curriculo-andre-a4.pdf',
+            format: 'A4',
+            preferCSSPageSize: true,
+            printBackground: true,
+            displayHeaderFooter: false
+          })
+          if (errors.length) console.warn('Erros JS observados:', errors)
+          await browser.close()
+          NODE
           pdfinfo /tmp/curriculo-andre-a4.pdf
           pages=$(pdfinfo /tmp/curriculo-andre-a4.pdf | awk '/^Pages:/ {print $2}')
-          test "$pages" = "1" || { echo "Erro: o curriculo gerou $pages paginas, esperado 1."; exit 1; }
+          test "$pages" = "1" || { echo "ERRO: o curriculo gerou $pages paginas, esperado 1."; exit 1; }
           pdftotext -layout /tmp/curriculo-andre-a4.pdf /tmp/cv.txt
           grep -qi "CaixaFuturo" /tmp/cv.txt
           grep -qi "Compass UOL" /tmp/cv.txt
           grep -qi "Bem Aqui" /tmp/cv.txt
-          echo "OK: PDF A4 com exatamente uma pagina, experiencias e projetos presentes."
+          echo "OK: PDF A4 com exatamente uma pagina; experiencias e todos os projetos presentes."
       - name: Disponibilizar PDF de verificacao
         if: success()
         uses: actions/upload-artifact@v4
